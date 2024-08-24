@@ -19,12 +19,62 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
 
-//            Button("Create account")
+            Button(action: {}){
+                Text("Continue with Google")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                            .stroke(Color.gray, lineWidth: 2)
+                    )
+            }.padding(.top)
+            Button(action: {}){
+                HStack{
+                    Image(systemName: "google_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20) // Set the icon size
+
+                        .font(.headline)
+                    Text("Continue with Apple")                    .font(.headline)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .overlay(
+                    RoundedRectangle(cornerRadius: 50)
+                        .stroke(Color.gray, lineWidth: 2)
+                    )
+            }.padding(.top)
+            
+            Text("or")
+            
+            Button(action: {}){
+                Text("Create account")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(50)
+            }.padding(.top)
+
             Text("By signing up, you agree to the Terms of Servie and Privacy Policy, including Cookie Use.")
+                .font(.callout)
             Spacer()
 
-            Text("Have an account already?")
-            Text("Log in")
+            
+            HStack {
+                Text("Have an account already?")
+                Text("Log in")
+                    .foregroundColor(.blue)
+            }
+            .font(.none)
+
         }
         .padding(22)
     }
