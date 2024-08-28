@@ -14,6 +14,7 @@
 		E9125E152C79097700A711C7 /* TwitterCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9125E142C79097700A711C7 /* TwitterCloneTests.swift */; };
 		E9125E1F2C79097700A711C7 /* TwitterCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9125E1E2C79097700A711C7 /* TwitterCloneUITests.swift */; };
 		E9125E212C79097700A711C7 /* TwitterCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9125E202C79097700A711C7 /* TwitterCloneUITestsLaunchTests.swift */; };
+		E9D2C71E2C7BAB5B00FB39EA /* homeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2C71D2C7BAB5B00FB39EA /* homeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		E9125E1A2C79097700A711C7 /* TwitterCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9125E1E2C79097700A711C7 /* TwitterCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCloneUITests.swift; sourceTree = "<group>"; };
 		E9125E202C79097700A711C7 /* TwitterCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9D2C71D2C7BAB5B00FB39EA /* homeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		E9125E022C79097500A711C7 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				E9D2C71D2C7BAB5B00FB39EA /* homeScreen.swift */,
 				E9125E032C79097500A711C7 /* TwitterCloneApp.swift */,
 				E9125E052C79097500A711C7 /* ContentView.swift */,
 				E9125E072C79097700A711C7 /* Assets.xcassets */,
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D2C71E2C7BAB5B00FB39EA /* homeScreen.swift in Sources */,
 				E9125E062C79097500A711C7 /* ContentView.swift in Sources */,
 				E9125E042C79097500A711C7 /* TwitterCloneApp.swift in Sources */,
 			);

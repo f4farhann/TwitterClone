@@ -10,12 +10,17 @@ import SwiftUI
 
 struct HomeScreenView: View {
     var body: some View {
-        VStack{
-            Text("hi")
+        ZStack{
+            HStack{
+                Image(systemName: "bird.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.blue)
+                VStack{
+                    Text("USER NAME")
+                }
+            }
         }
-        
     }
-        
 }
 
 #Preview {
