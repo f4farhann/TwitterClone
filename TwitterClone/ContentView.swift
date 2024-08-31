@@ -78,7 +78,6 @@ struct ContentView: View {
                     .font(.callout)
                 Spacer()
                 
-                
                 HStack {
                     Text("Have an account already?")
                     
