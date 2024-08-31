@@ -81,11 +81,13 @@ struct ContentView: View {
                 
                 HStack {
                     Text("Have an account already?")
-                    Text("Log in")
-                        .foregroundColor(.blue)
+                    
+                    NavigationLink(destination: HomeScreenView()) {
+                        Text("Log in")
+                            .foregroundColor(.blue)
+                    }
                 }
                 .font(.none)
-                
             }
             .padding(22)
         }

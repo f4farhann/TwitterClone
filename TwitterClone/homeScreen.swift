@@ -12,32 +12,41 @@ struct HomeScreenView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                HStack{
+                    Text("For you")
+                    Text("Following")
+                }
+                Spacer()
+
                 // Your content here
-                Text("Hello, world!")
+                Text("app content")
                     .padding()
+                Spacer()
+
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .principal){
                     Button(action: {
-                        print("Action button tapped")
-                    }) {
-                        Image(systemName: "plus") // Add an icon button
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        print("Action button tapped")
+                        print("App icon")
                     }) {
                         Image(systemName: "bird.fill")
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        print("Back button tapped")
+                        print("Navigate to Profile")
                     }) {
-                        Image(systemName: "arrow.backward")
+                        Image(systemName: "person.crop.circle")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("Navigate to Profile")
+                    }) {
+                        Image(systemName: "ellipsis")
+                    }
+                }
+                
             }
         }
         
