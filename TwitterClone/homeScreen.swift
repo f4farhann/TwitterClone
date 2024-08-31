@@ -41,7 +41,7 @@ struct HomeScreenView: View {
                 if isDrawerOpen {
                     DrawerView(isOpen: $isDrawerOpen)
                         .transition(.move(edge: .leading))
-                        .zIndex(1) // Ensure the drawer is on top
+                        .zIndex(1)
                 }
             }
             .toolbar {
@@ -82,7 +82,7 @@ struct DrawerView: View {
     @Binding var isOpen: Bool
 
     var body: some View {
-        VStack {
+        VStack (alignment: .leading){
             HStack {
                 Button(action: {
                     withAnimation {
@@ -95,21 +95,20 @@ struct DrawerView: View {
                 Button(action: {
                     print("Options button tapped in drawer")
                 }) {
-                    Image(systemName: "ellipsis")
+                    Image(systemName: "ellipsis.circle")
+                        .padding(.bottom, 5)
                 }
             }
-            .padding()
             
             Text("User Name")
                 .font(.headline)
-                .padding(.top, 10)
-            Text("User ID")
+
+            Text("@userid")
                 .font(.subheadline)
                 .padding(.bottom, 10)
-
+            
             HStack {
                 Text("Following")
-                Spacer()
                 Text("Followers")
             }
             .padding(.bottom, 10)
@@ -131,8 +130,9 @@ struct DrawerView: View {
             
             Spacer()
         }
+        .padding(18)
         .frame(width: 250)
-        .background(Color.white)
+        .background(Color.gray)
         .offset(x: isOpen ? 0 : -250) // Slide in/out effect
     }
 }
