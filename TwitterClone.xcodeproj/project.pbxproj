@@ -96,9 +96,9 @@
 		E9125E022C79097500A711C7 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
-				E9D2C71D2C7BAB5B00FB39EA /* homeScreen.swift */,
 				E9125E032C79097500A711C7 /* TwitterCloneApp.swift */,
 				E9125E052C79097500A711C7 /* ContentView.swift */,
+				E9D2C71D2C7BAB5B00FB39EA /* homeScreen.swift */,
 				E9125E072C79097700A711C7 /* Assets.xcassets */,
 				E9125E092C79097700A711C7 /* Preview Content */,
 			);
