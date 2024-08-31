@@ -24,6 +24,13 @@ struct HomeScreenView: View {
                         Image(systemName: "plus") // Add an icon button
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action: {
+                        print("Action button tapped")
+                    }) {
+                        Image(systemName: "bird.fill")
+                    }
+                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         print("Back button tapped")
