@@ -8,27 +8,41 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    var userName: String
+    var userId: String?
+    
     var body: some View {
-        HStack(){
+        HStack(alignment: .top){
+            
             Image(systemName: "person.crop.circle")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 60, height: 60)
+            
             VStack(alignment: .leading){
+                
                 HStack{
-                    Text("User Name")
+                    Text(userName)
                     Image(systemName: "checkmark.seal.fill")
-                    Text("@userId • 1d")
+                    if let userId = userId {
+                        Text("@\(userId) • 1d")
+                    } else {
+                        Text("@userId • 1d")
+                    }
+                    Spacer()
                     Image(systemName: "ellipsis")
                         .rotationEffect(.degrees(90))
-                    
                 }
+                
                 Text("I'm deleting this soon because it's a legit cash-printing formula.")
                             .font(.body)
+                
                 Image("google_logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
+                    .frame(height: 100)
+                   
                 
                 HStack{
                     IconView(iconName: "message", text: "2.4k")
@@ -41,6 +55,7 @@ struct CardView: View {
                 
             }
         }
+        .padding(10)
     }
 }
 
@@ -51,6 +66,8 @@ struct IconView: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: iconName)
+                .resizable()
+                  .frame(width: 16, height: 16)
             if let text = text {
                 Text(text)
             }
@@ -60,5 +77,5 @@ struct IconView: View {
 
 
 #Preview {
-    CardView()
+    CardView(userName: "farhan haider", userId: "farhan123")
 }

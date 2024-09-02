@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    
     @State private var isDrawerOpen = false // State to manage drawer visibility
 
+    let users = [
+          (userName: "John Doe", userId: "john_doe123"),
+          (userName: "Jane Smith", userId: "jane456"),
+          (userName: "John Doe", userId: "john_doe123"),
+          (userName: "Jane Smith", userId: "jane456"),
+          (userName: "John Doe", userId: "john_doe123"),
+          (userName: "Jane Smith", userId: "jane456"),
+      ]
     var body: some View {
         NavigationStack {
             ZStack {
@@ -26,16 +35,12 @@ struct HomeScreenView: View {
                             Spacer()
                         }
                         
-                        // List view using LazyVStack
                         LazyVStack(alignment: .center, spacing: 20) {
-                            ForEach(1..<20) { item in
-                                Divider()
-                                Text("Item \(item)")
-                                    .padding()
-                                    .background(Color.gray.opacity(0.1))
-                                    .cornerRadius(8)
+                            ForEach(users, id: \.userId) {user in
+                                CardView(userName: user.userName, userId: user.userId)
                             }
                         }
+                        
                     }
                 }
                 if isDrawerOpen {
