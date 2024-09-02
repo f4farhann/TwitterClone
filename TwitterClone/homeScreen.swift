@@ -80,6 +80,9 @@ struct HomeScreenView: View {
 
 struct DrawerView: View {
     @Binding var isOpen: Bool
+    
+    var following = 36
+    var followers = 12
 
     var body: some View {
         VStack (alignment: .leading){
@@ -108,14 +111,15 @@ struct DrawerView: View {
                 .padding(.bottom, 10)
             
             HStack {
-                Text("Following")
-                Text("Followers")
+                Text("\(following) Following")
+                Text("\(followers) Followers")
             }
             .padding(.bottom, 10)
 
             Divider()
 
             VStack(alignment: .leading, spacing: 10) {
+                
                 Button("Profile") { }
                 Button("Premium") { }
                 Button("Bookmarks") { }
@@ -134,6 +138,16 @@ struct DrawerView: View {
         .frame(width: 250)
         .background(Color.gray)
         .offset(x: isOpen ? 0 : -250) // Slide in/out effect
+    }
+}
+
+
+struct IconText: View {
+    var body: some View {
+        HStack{
+            Image("")
+            Text("")
+        }
     }
 }
 
