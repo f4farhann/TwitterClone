@@ -15,7 +15,14 @@ struct CardView: View {
                 .scaledToFit()
                 .frame(width: 60, height: 60)
             VStack(alignment: .leading){
-                Text("NAME")
+                HStack{
+                    Text("NAME")
+                    Image(systemName: "tickmark")
+                    Text("USERID")
+                    Text("1.d")
+                    Image(systemName: "ellipsis")
+
+                }
                 Text("CONTENT TEXT")
                 Image("google_logo")
                     .resizable()
@@ -23,14 +30,13 @@ struct CardView: View {
                     .frame(width: 100, height: 100)
                 
                 HStack{
-                    Image(systemName: "message")
+                      Image(systemName: "message")
                       Image(systemName: "arrow.2.squarepath")
                       Image(systemName: "heart")
                       Image(systemName: "chart.bar")
                       Image(systemName: "bookmark")
-                      Image(systemName: "share")
+                      Image(systemName: "arrowshape.turn.up.forward")
                 }
-                
                 
             }
         }
