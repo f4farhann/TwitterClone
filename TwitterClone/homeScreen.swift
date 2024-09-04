@@ -14,10 +14,10 @@ struct HomeScreenView: View {
     let users = [
           (userName: "John Doe", userId: "john_doe123"),
           (userName: "Jane Smith", userId: "jane456"),
-          (userName: "John Doe", userId: "john_doe123"),
-          (userName: "Jane Smith", userId: "jane456"),
-          (userName: "John Doe", userId: "john_doe123"),
-          (userName: "Jane Smith", userId: "jane456"),
+          (userName: "farhna haider", userId: "farhan123"),
+          (userName: "arman khan", userId: "arman03"),
+          (userName: "John don", userId: "don123"),
+          (userName: "Jane mon", userId: "mon456"),
       ]
     var body: some View {
         NavigationStack {
@@ -77,6 +77,8 @@ struct HomeScreenView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true) // Hides the back button
+
         }
     }
 }
