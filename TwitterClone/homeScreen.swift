@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeScreenView: View {
     
     @State private var isDrawerOpen = false // State to manage drawer visibility
+    @State private var showOptions = false
+
 
     let users = [
           (userName: "John Doe", userId: "john_doe123"),
@@ -43,6 +45,70 @@ struct HomeScreenView: View {
                         
                     }
                 }
+                
+                // Floating Button with Animation
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        
+                        if showOptions {
+                            // Option Buttons
+                            VStack {
+                                Button(action: {
+                                    // Action for Go Live
+                                }) {
+                                    HStack {
+                                        Text("Go Live")
+                                        Image(systemName: "video.fill")
+                                    }
+                                    .padding()
+                                    .cornerRadius(10)
+                                }
+                                
+                                Button(action: {
+                                    // Action for Spaces
+                                }) {
+                                    HStack {
+                                        Text("Spaces")
+                                        Image(systemName: "dot.radiowaves.left.and.right")
+                                    }
+                                    .padding()
+                                    .cornerRadius(10)
+                                }
+                                
+                                Button(action: {
+                                    // Action for Photos
+                                }) {
+                                    HStack {
+                                        Text("Photos")
+                                        Image(systemName: "photo.on.rectangle")
+                                    }
+                                    .padding()
+                                    .cornerRadius(10)
+                                }
+                            }
+                            .transition(.scale) // Animation transition for options
+                            .padding(.bottom, 10)
+                        }
+
+                        Button(action: {
+                            withAnimation {
+                                showOptions.toggle() // Toggle the options menu
+                            }
+                        }) {
+                            Image(systemName: showOptions ? "pencil" : "plus")
+                                .font(.system(size: 24))
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
+                                .shadow(radius: 4)
+                        }
+                        .padding()
+                    }
+                }
+
                 if isDrawerOpen {
                     DrawerView(isOpen: $isDrawerOpen)
                         .transition(.move(edge: .leading))
@@ -74,11 +140,11 @@ struct HomeScreenView: View {
                         print("Options button tapped")
                     }) {
                         Image(systemName: "ellipsis")
+                            .rotationEffect(.degrees(90))
                     }
                 }
             }
             .navigationBarBackButtonHidden(true) // Hides the back button
-
         }
     }
 }
