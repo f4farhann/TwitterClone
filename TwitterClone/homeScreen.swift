@@ -84,13 +84,12 @@ struct HomeScreenView: View {
                     // Additional options that appear when FAB is clicked
                     if isFABClicked {
                         VStack(spacing: 10) {
-                            FABOptionButton(label: "Go Live", systemIcon: "video.fill")
+                            FABOptionButton(label: "Go Live", systemIcon:"video.fill")
                             FABOptionButton(label: "Space", systemIcon: "mic.fill")
                             FABOptionButton(label: "Photos", systemIcon: "photo.fill")
-                            FABOptionButton(label: "Post", systemIcon: "pencil.circle.fill")
                         }
-                        .transition(.move(edge: .trailing))
-                        .animation(.spring())
+//                        .transition(.move(edge: .trailing))
+//                        .animation(.spring())
                     }
                     
                     HStack {
@@ -100,11 +99,11 @@ struct HomeScreenView: View {
                                 isFABClicked.toggle() // Toggle the state on button click
                             }
                         }) {
-                            Image(systemName: "xmark")
+                            Image(systemName: isFABClicked ? "pencil" : "plus")
                                 .foregroundColor(.white)
                                 .font(.system(size: 24))
                                 .padding()
-                                .rotationEffect(.degrees(isFABClicked ? 45 : 0)) // Rotate the icon
+                                .rotationEffect(.degrees(isFABClicked ? 360 : 0)) // Rotate the icon
                         }
                         .background(Color.blue)
                         .clipShape(Circle())
