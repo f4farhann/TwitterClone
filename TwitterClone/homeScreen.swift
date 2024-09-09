@@ -67,8 +67,8 @@ struct HomeScreenView: View {
                                 FABOptionButton(label: "Space", systemIcon: "mic.fill")
                                 FABOptionButton(label: "Photos", systemIcon: "photo.fill")
                             }
-                        }
-                   }
+                        }                        .padding()
+                    }
 
                     HStack {
                         Spacer()
