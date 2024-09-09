@@ -52,46 +52,23 @@ struct HomeScreenView: View {
                         .transition(.move(edge: .leading))
                         .zIndex(1)
                 }
-                
-                //                // Floating action button
-                //                              VStack {
-                //                                  Spacer()
-                //                                  HStack {
-                //                                      Spacer()
-                //                                      Button(action: {
-                //                                          withAnimation(.spring()) {
-                //                                              isFABClicked.toggle() // Toggle the state on button click
-                //                                          }
-                //                                      }) {
-                //                                          Image(systemName: isFABClicked ? "pencil" : "plus")
-                //                                              .foregroundColor(.white)
-                //                                              .font(.system(size: 40))
-                //                                              .padding()
-                //                                              .rotationEffect(.degrees(isFABClicked ? 360 : 0)) // Rotate the icon
-                //                                      }
-                //                                      .background(Color.blue)
-                //                                      .clipShape(Circle())
-                //                                      .shadow(radius: 5)
-                //                                      .padding()
-                //                                  }
-                //                              }
-                //            }
+             
                 
                 // Floating action button and options
                 VStack {
                     Spacer()
-                    
                     // Additional options that appear when FAB is clicked
                     if isFABClicked {
-                        VStack(spacing: 10) {
-                            FABOptionButton(label: "Go Live", systemIcon:"video.fill")
-                            FABOptionButton(label: "Space", systemIcon: "mic.fill")
-                            FABOptionButton(label: "Photos", systemIcon: "photo.fill")
+                        HStack{
+                            Spacer()
+                            VStack(spacing: 10) {
+                                FABOptionButton(label: "Go Live", systemIcon:"video.fill")
+                                FABOptionButton(label: "Space", systemIcon: "mic.fill")
+                                FABOptionButton(label: "Photos", systemIcon: "photo.fill")
+                            }
                         }
-//                        .transition(.move(edge: .trailing))
-//                        .animation(.spring())
-                    }
-                    
+                   }
+
                     HStack {
                         Spacer()
                         Button(action: {
@@ -112,6 +89,8 @@ struct HomeScreenView: View {
                     }
                 }
             }
+            
+            
             .toolbar {
                 // Profile icon
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -156,14 +135,19 @@ struct FABOptionButton: View {
             print("\(label) button tapped")
         }) {
             HStack {
-                Image(systemName: systemIcon)
-                    .foregroundColor(.white)
                 Text(label)
                     .foregroundColor(.white)
                     .font(.body)
+                Image(systemName: systemIcon)
+                    .foregroundColor(.blue)
+                    .padding()
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .font(.system(size: 10))
+
+
             }
             .padding()
-            .background(Color.blue)
             .cornerRadius(8)
             .shadow(radius: 5)
         }
