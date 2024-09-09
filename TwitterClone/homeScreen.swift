@@ -46,6 +46,7 @@ struct HomeScreenView: View {
                         
                     }
                 }
+                .blur(radius: isFABClicked ? 5 : 0) // Apply blur when FAB is clicked
                 
                 if isDrawerOpen {
                     DrawerView(isOpen: $isDrawerOpen)
@@ -78,7 +79,7 @@ struct HomeScreenView: View {
                         }) {
                             Image(systemName: isFABClicked ? "pencil" : "plus")
                                 .foregroundColor(.white)
-                                .font(.system(size: 24))
+                                .font(.system(size: 40))
                                 .padding()
                                 .rotationEffect(.degrees(isFABClicked ? 360 : 0)) // Rotate the icon
                         }
@@ -136,18 +137,17 @@ struct FABOptionButton: View {
         }) {
             HStack {
                 Text(label)
-                    .foregroundColor(.white)
+                    .foregroundColor(.blue)
                     .font(.body)
                 Image(systemName: systemIcon)
+                    .resizable() // Make icon resizable
+                    .scaledToFit()
+                    .frame(width: 16, height: 16) // Smaller size for option icons
                     .foregroundColor(.blue)
-                    .padding()
+                    .padding(10)
                     .background(Color.white)
                     .clipShape(Circle())
-                    .font(.system(size: 10))
-
-
-            }
-            .padding()
+                }
             .cornerRadius(8)
             .shadow(radius: 5)
         }
