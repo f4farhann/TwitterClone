@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeScreenView: View {
     
     @State private var isDrawerOpen = false // State to manage drawer visibility
-    @State private var showOptions = false
+    @State private var isFABClicked = false // State to manage FAB icon change
 
 
     let users = [
@@ -21,6 +21,7 @@ struct HomeScreenView: View {
           (userName: "John don", userId: "don123"),
           (userName: "Jane mon", userId: "mon456"),
       ]
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -46,73 +47,70 @@ struct HomeScreenView: View {
                     }
                 }
                 
-                // Floating Button with Animation
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        
-                        if showOptions {
-                            // Option Buttons
-                            VStack {
-                                Button(action: {
-                                    // Action for Go Live
-                                }) {
-                                    HStack {
-                                        Text("Go Live")
-                                        Image(systemName: "video.fill")
-                                    }
-                                    .padding()
-                                    .cornerRadius(10)
-                                }
-                                
-                                Button(action: {
-                                    // Action for Spaces
-                                }) {
-                                    HStack {
-                                        Text("Spaces")
-                                        Image(systemName: "dot.radiowaves.left.and.right")
-                                    }
-                                    .padding()
-                                    .cornerRadius(10)
-                                }
-                                
-                                Button(action: {
-                                    // Action for Photos
-                                }) {
-                                    HStack {
-                                        Text("Photos")
-                                        Image(systemName: "photo.on.rectangle")
-                                    }
-                                    .padding()
-                                    .cornerRadius(10)
-                                }
-                            }
-                            .transition(.scale) // Animation transition for options
-                            .padding(.bottom, 10)
-                        }
-
-                        Button(action: {
-                            withAnimation {
-                                showOptions.toggle() // Toggle the options menu
-                            }
-                        }) {
-                            Image(systemName: showOptions ? "pencil" : "plus")
-                                .font(.system(size: 24))
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .clipShape(Circle())
-                                .shadow(radius: 4)
-                        }
-                        .padding()
-                    }
-                }
-
                 if isDrawerOpen {
                     DrawerView(isOpen: $isDrawerOpen)
                         .transition(.move(edge: .leading))
                         .zIndex(1)
+                }
+                
+                //                // Floating action button
+                //                              VStack {
+                //                                  Spacer()
+                //                                  HStack {
+                //                                      Spacer()
+                //                                      Button(action: {
+                //                                          withAnimation(.spring()) {
+                //                                              isFABClicked.toggle() // Toggle the state on button click
+                //                                          }
+                //                                      }) {
+                //                                          Image(systemName: isFABClicked ? "pencil" : "plus")
+                //                                              .foregroundColor(.white)
+                //                                              .font(.system(size: 40))
+                //                                              .padding()
+                //                                              .rotationEffect(.degrees(isFABClicked ? 360 : 0)) // Rotate the icon
+                //                                      }
+                //                                      .background(Color.blue)
+                //                                      .clipShape(Circle())
+                //                                      .shadow(radius: 5)
+                //                                      .padding()
+                //                                  }
+                //                              }
+                //            }
+                
+                // Floating action button and options
+                VStack {
+                    Spacer()
+                    
+                    // Additional options that appear when FAB is clicked
+                    if isFABClicked {
+                        VStack(spacing: 10) {
+                            FABOptionButton(label: "Go Live", systemIcon: "video.fill")
+                            FABOptionButton(label: "Space", systemIcon: "mic.fill")
+                            FABOptionButton(label: "Photos", systemIcon: "photo.fill")
+                            FABOptionButton(label: "Post", systemIcon: "pencil.circle.fill")
+                        }
+                        .transition(.move(edge: .trailing))
+                        .animation(.spring())
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                isFABClicked.toggle() // Toggle the state on button click
+                            }
+                        }) {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.white)
+                                .font(.system(size: 24))
+                                .padding()
+                                .rotationEffect(.degrees(isFABClicked ? 45 : 0)) // Rotate the icon
+                        }
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                        .padding()
+                    }
                 }
             }
             .toolbar {
@@ -146,6 +144,31 @@ struct HomeScreenView: View {
             }
             .navigationBarBackButtonHidden(true) // Hides the back button
         }
+    }
+}
+
+// A separate view for each FAB option
+struct FABOptionButton: View {
+    let label: String
+    let systemIcon: String
+    
+    var body: some View {
+        Button(action: {
+            print("\(label) button tapped")
+        }) {
+            HStack {
+                Image(systemName: systemIcon)
+                    .foregroundColor(.white)
+                Text(label)
+                    .foregroundColor(.white)
+                    .font(.body)
+            }
+            .padding()
+            .background(Color.blue)
+            .cornerRadius(8)
+            .shadow(radius: 5)
+        }
+        .transition(.move(edge: .trailing))
     }
 }
 
