@@ -16,27 +16,17 @@ struct MainView: View {
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
-            
             // Search Tab
             SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
-            
             // Trending Tab
             TrendingView()
                 .tabItem {
                     Image(systemName: "flame.fill")
-                    Text("Trending")
                 }
-           
-           
-            // Explore Tab
-            ExploreView()
-                .tabItem {
-                    Image(systemName: "twoperson")
-                }
-            // Notification Tab
+
             NotificationView()
                 .tabItem {
                     Image(systemName: "bell")
