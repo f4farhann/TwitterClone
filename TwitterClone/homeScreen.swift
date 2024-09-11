@@ -120,8 +120,10 @@ struct HomeScreenView: View {
                             .rotationEffect(.degrees(90))
                     }
                 }
+                
             }
             .navigationBarBackButtonHidden(true) // Hides the back button
+                
         }
     }
 }

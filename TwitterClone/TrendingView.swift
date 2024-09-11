@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct TrendingView: View {
+    var body: some View {
+        Text("Trending Screen")
+    }
+}

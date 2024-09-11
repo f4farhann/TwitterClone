@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct MessageView: View {
+    var body: some View {
+        Text("Message Screen")
+    }
+}
