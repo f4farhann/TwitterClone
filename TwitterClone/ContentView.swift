@@ -63,7 +63,7 @@ struct ContentView: View {
                 
                 Text("or")
 
-                NavigationLink(destination: HomeScreenView()) {
+                NavigationLink(destination: MainView()) {
                                     Text("Create account")
                                         .font(.headline)
                                         .padding()
@@ -82,7 +82,7 @@ struct ContentView: View {
                 HStack {
                     Text("Have an account already?")
                     
-                    NavigationLink(destination: HomeScreenView()) {
+                    NavigationLink(destination: MainView()) {
                         Text("Log in")
                             .foregroundColor(.blue)
                     }
