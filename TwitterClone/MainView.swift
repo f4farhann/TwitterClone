@@ -37,7 +37,7 @@ struct MainView: View {
                     Image(systemName: "envelope")
                 }
         }
-//        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

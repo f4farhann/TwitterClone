@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct MessageView: View {
-    @State private var isDrawerOpen = false // State to manage drawer visibility
     var body: some View {
         NavigationStack {
             ZStack {
@@ -24,7 +23,6 @@ struct MessageView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         withAnimation {
-                            isDrawerOpen.toggle()
                         }
                     }) {
                         Image(systemName: "person.crop.circle")
@@ -47,8 +45,7 @@ struct MessageView: View {
                             .rotationEffect(.degrees(90))
                     }
                 }
-            }
-            //            .navigationBarBackButtonHidden(true) // Hides the back button
+            }.navigationBarBackButtonHidden(true) // Hides the back button
 
         }
     }

@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeScreenView: View {
     
     @State private var isDrawerOpen = false // State to manage drawer visibility
-    @State private var isFABClicked = false // State to manage FAB icon change
 
 
     let users = [
@@ -46,7 +45,6 @@ struct HomeScreenView: View {
                         
                     }
                 }
-                .blur(radius: isFABClicked ? 5 : 0) // Apply blur when FAB is clicked
                 
                 if isDrawerOpen {
                     DrawerView(isOpen: $isDrawerOpen)
@@ -56,32 +54,14 @@ struct HomeScreenView: View {
              
                 
                 // Floating action button and options
-                VStack {
-                    Spacer()
-                    // Additional options that appear when FAB is clicked
-                    if isFABClicked {
-                        HStack{
-                            Spacer()
-                            VStack(spacing: 10) {
-                                FABOptionButton(label: "Go Live", systemIcon:"video.fill")
-                                FABOptionButton(label: "Space", systemIcon: "mic.fill")
-                                FABOptionButton(label: "Photos", systemIcon: "photo.fill")
-                            }
-                        }                        .padding()
-                    }
-
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            withAnimation(.spring()) {
-                                isFABClicked.toggle() // Toggle the state on button click
-                            }
-                        }) {
-                            Image(systemName: isFABClicked ? "pencil" : "plus")
+                ZStack {
+                    VStack (){
+                        Button(action: {}
+                        ) {
+                            Image(systemName:  "plus")
                                 .foregroundColor(.white)
-                                .font(.system(size: 40))
+                                .font(.system(size: 30))
                                 .padding()
-                                .rotationEffect(.degrees(isFABClicked ? 360 : 0)) // Rotate the icon
                         }
                         .background(Color.blue)
                         .clipShape(Circle())
@@ -90,6 +70,7 @@ struct HomeScreenView: View {
                     }
                 }
             }
+            
             
             
             .toolbar {
@@ -122,42 +103,11 @@ struct HomeScreenView: View {
                 }
                 
             }
-//            .navigationBarBackButtonHidden(true) // Hides the back button
+            .navigationBarBackButtonHidden(true) // Hides the back button
                 
         }
     }
 }
-
-// A separate view for each FAB option
-struct FABOptionButton: View {
-    let label: String
-    let systemIcon: String
-    
-    var body: some View {
-        Button(action: {
-            print("\(label) button tapped")
-        }) {
-            HStack {
-                Text(label)
-                    .foregroundColor(.blue)
-                    .font(.body)
-                Image(systemName: systemIcon)
-                    .resizable() // Make icon resizable
-                    .scaledToFit()
-                    .frame(width: 16, height: 16) // Smaller size for option icons
-                    .foregroundColor(.blue)
-                    .padding(10)
-                    .background(Color.white)
-                    .clipShape(Circle())
-                }
-            .cornerRadius(8)
-            .shadow(radius: 5)
-        }
-        .transition(.move(edge: .trailing))
-    }
-}
-
-
 
 struct DrawerView: View {
     @Binding var isOpen: Bool

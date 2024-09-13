@@ -10,6 +10,15 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        Text("Search Screen")
-    }
+        NavigationStack {
+            // 1
+            ZStack(alignment: .bottomTrailing) {
+                
+            }
+        }
+    }}
+
+
+#Preview {
+    SearchView()
 }
