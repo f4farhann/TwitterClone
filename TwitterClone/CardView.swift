@@ -18,18 +18,21 @@ struct CardView: View {
             Image(systemName: "person.crop.circle")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 60, height: 60)
+                .frame(width: 50, height: 50)
             
             VStack(alignment: .leading){
                 
                 HStack{
                     Text(userName)
+                        .lineLimit(1)
                     Image(systemName: "checkmark.seal.fill")
                     if let userId = userId {
-                        Text("@\(userId) • 1d")
+                        Text("@\(userId)")
+                            .lineLimit(1)
                     } else {
-                        Text("@userId • 1d")
+                        Text("@userId")                        .lineLimit(1)
                     }
+                    Text("• 1d")                        .lineLimit(1)
                     Spacer()
                     Image(systemName: "ellipsis")
                         .rotationEffect(.degrees(90))
@@ -44,13 +47,20 @@ struct CardView: View {
                     .frame(height: 100)
                    
                 
-                HStack{
+                HStack{        
                     IconView(iconName: "message", text: "2.4k")
-                       IconView(iconName: "arrow.2.squarepath", text: "2.4k")
-                       IconView(iconName: "heart", text: "2.4k")
-                       IconView(iconName: "chart.bar", text: "2.4k")
-                       IconView(iconName: "bookmark")
-                       IconView(iconName: "arrowshape.turn.up.forward")
+                    Spacer()
+                    IconView(iconName: "arrow.2.squarepath", text: "2.4k")
+                    Spacer()
+                    IconView(iconName: "heart", text: "2.4k")
+                    Spacer()
+                    IconView(iconName: "chart.bar", text: "2.4k")
+                    Spacer()
+                    IconView(iconName: "bookmark")
+                    Spacer()
+                    IconView(iconName: "arrowshape.turn.up.forward")
+                    Spacer()
+
                 }
                 
             }
@@ -66,10 +76,13 @@ struct IconView: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: iconName)
-                .resizable()
-                  .frame(width: 16, height: 16)
+                .resizable() 
+                .lineLimit(1)
+                .frame(width: 12, height: 12)
             if let text = text {
-                Text(text)
+                Text(text) 
+                    .lineLimit(1)
+                    .font(.system(size: 12))
             }
         }
     }
@@ -77,5 +90,5 @@ struct IconView: View {
 
 
 #Preview {
-    CardView(userName: "farhan haider", userId: "farhan123")
+    CardView(userName: "farhan haider kazmi", userId: "farhanadfarhan123")
 }

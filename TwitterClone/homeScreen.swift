@@ -13,7 +13,7 @@ struct HomeScreenView: View {
 
 
     let users = [
-          (userName: "John Doe", userId: "john_doe123"),
+          (userName: "farhan haider kazmi", userId: "john_doe123"),
           (userName: "Jane Smith", userId: "jane456"),
           (userName: "farhna haider", userId: "farhan123"),
           (userName: "arman khan", userId: "arman03"),
