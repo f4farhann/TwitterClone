@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 
 struct MessagesView: View {
+    
     @Binding var showingDrawer: Bool
-    let tweets: [Tweet] // You'll need to pass this from ContentView
+    let tweets: [Tweet]
     @State private var showingNewTweetSheet = false
-
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -38,13 +40,13 @@ struct MessagesView: View {
                             )
                         }
                     )
+                    SearchBar(text: $searchText)
+                        .padding(.vertical)
                     
                     List {
-                        Text("Messages content goes here")
-                        Text("Messages content goes here")
-                        Text("Messages content goes here")
-                        Text("Messages content goes here")
-                        
+                        ForEach(1...10, id: \.self) { _ in
+                            MessageItem()
+                        }
                     }
                     .listStyle(PlainListStyle())
                 }
@@ -64,5 +66,36 @@ struct MessagesView: View {
         .sheet(isPresented: $showingNewTweetSheet) {
             NewTweetView(isPresented: $showingNewTweetSheet)
         }
+    }
+}
+
+
+struct MessageItem: View {
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "person.crop.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .foregroundColor(.gray)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    Text("John Doe")
+                        .font(.headline)
+                    Text("@johndoe")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    Text("2h")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                
+                Text("Hey, how's it going?")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+        }
+        .padding(.vertical, 8)
     }
 }
