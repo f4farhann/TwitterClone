@@ -42,33 +42,28 @@ struct MainView: View {
     ]
     
     var body: some View {
-            ZStack {
-                TabView {
-                    HomeView(showingDrawer: $showingDrawer, tweets: tweets)
-                        .tabItem {
-                            Image(systemName: "house")
-                            Text("Home")
-                        }
-                    
-                    SearchView(showingDrawer: $showingDrawer, tweets: tweets)
-                        .tabItem {
-                            Image(systemName: "magnifyingglass")
-                            Text("Search")
-                        }
-                    
-                    NotificationsView(showingDrawer: $showingDrawer, tweets: tweets)
-                        .tabItem {
-                            Image(systemName: "bell")
-                            Text("Notifications")
-                        }
-                    
-                    MessagesView(showingDrawer: $showingDrawer, tweets: tweets)
-                        .tabItem {
-                            Image(systemName: "envelope")
-                            Text("Messages")
-                        }
-                    
-                }
+        ZStack {
+            TabView {
+                HomeView(showingDrawer: $showingDrawer, tweets: tweets)
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                
+                SearchView(showingDrawer: $showingDrawer, tweets: tweets)
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                    }
+                
+                NotificationsView(showingDrawer: $showingDrawer, tweets: tweets)
+                    .tabItem {
+                        Image(systemName: "bell")
+                    }
+                
+                MessagesView(showingDrawer: $showingDrawer, tweets: tweets)
+                    .tabItem {
+                        Image(systemName: "envelope")
+                    }
+            }
             
             if showingDrawer {
                 Color.black.opacity(0.5)

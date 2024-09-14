@@ -23,8 +23,14 @@ struct TopAppBar: View {
             
             Spacer()
             
-            Text(title)
-                .font(.headline)
+            if title.isEmpty{
+                Image(systemName: "bird.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.blue)
+            } else {
+                Text(title)
+                    .font(.headline)
+            }
             
             Spacer()
             

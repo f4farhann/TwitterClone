@@ -18,7 +18,7 @@ struct HomeView: View {
             ZStack {
                 VStack(spacing: 0) {
                     TopAppBar(
-                        title: "Home",
+                        title: "",
                         leadingItem: {
                             AnyView(
                                 Button(action: {
@@ -123,7 +123,7 @@ struct NewTweetView: View {
                     print("Tweet: \(tweetText)")
                     isPresented = false
                 }
-                .disabled(tweetText.isEmpty)
+                    .disabled(tweetText.isEmpty)
             )
         }
     }

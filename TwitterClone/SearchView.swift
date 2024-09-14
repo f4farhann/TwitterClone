@@ -17,49 +17,49 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ZStack{
-            VStack(spacing: 0) {
-                TopAppBar(
-                    title: "Search",
-                    leadingItem: {
-                        AnyView(
-                            Button(action: {
-                                withAnimation {
-                                    showingDrawer.toggle()
+                VStack(spacing: 0) {
+                    TopAppBar(
+                        title: "Search",
+                        leadingItem: {
+                            AnyView(
+                                Button(action: {
+                                    withAnimation {
+                                        showingDrawer.toggle()
+                                    }
+                                }) {
+                                    Image(systemName: "person.crop.circle")
+                                        .imageScale(.large)
                                 }
-                            }) {
-                                Image(systemName: "person.crop.circle")
+                            )
+                        },
+                        trailingItem: {
+                            AnyView(
+                                Image(systemName: "gearshape.fill")
                                     .imageScale(.large)
-                            }
-                        )
-                    },
-                    trailingItem: {
-                        AnyView(
-                            Image(systemName: "gearshape.fill")
-                                .imageScale(.large)
-                        )
+                            )
+                        }
+                    )
+                    
+                    List {
+                        Text("Search content goes here")
                     }
-                )
-                
-                List {
-                    Text("Search content goes here")
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
-            }
-            VStack {
-                Spacer()
-                HStack {
+                VStack {
                     Spacer()
-                    FloatingActionButton {
-                        showingNewTweetSheet = true
+                    HStack {
+                        Spacer()
+                        FloatingActionButton {
+                            showingNewTweetSheet = true
+                        }
+                        .padding()
                     }
-                    .padding()
                 }
             }
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
-    }
         .sheet(isPresented: $showingNewTweetSheet) {
             NewTweetView(isPresented: $showingNewTweetSheet)
         }
-}
+    }
 }
