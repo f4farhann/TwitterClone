@@ -38,7 +38,7 @@ struct HomeView: View {
                             )
                         }
                     )
-                    
+                    //
                     List {
                         ForEach(tweets) { tweet in
                             TweetView(tweet: tweet)
